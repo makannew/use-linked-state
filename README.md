@@ -11,7 +11,7 @@ First import and instantiating a gateway in parent component.
 import {useStateGateway} from "use-linked-state";
 const myGateway = useStateGateway("this is initial state");
 ```
-Then pass this `gateway` as a prop to every component that we want to connect.
+Then pass that `gateway` as a prop to every component that we want to connect.
 ```
 return(
   <div>
@@ -31,7 +31,9 @@ export default function Component1({stateGateway}){
 
   const [state, setState] =  useLinkedState(stateGateway);
 
-  ...rest of component
+  ...In rest of component we can use state and setState as usual, 
+  any setState will cause update of other subscribed components
+  and state of this component may update by others as well.
 
 }
 ```
