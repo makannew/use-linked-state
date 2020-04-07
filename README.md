@@ -1,5 +1,7 @@
 # React hook for sharing data between components
-Sharing data between components is possible through React context which is well described [here](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd) 
+Sharing data between components is possible through React context which is well described [here by Sambhav Gore
+](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd) 
+
 However, sometimes we need a simpler solution for just specific components without having an higher level state and context. 
 Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use useLinkedState to connect two or more components through a common gateway.
 
