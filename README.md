@@ -33,7 +33,7 @@ export default function Component1({stateGateway}){
 
   ...In rest of component we can use state and setState as usual, 
   any setState will cause update of other subscribed components
-  and state of this component may update by others as well.
+  and state of this component may updated by others as well.
 
 }
 ```
