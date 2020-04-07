@@ -1,11 +1,12 @@
 # React hook for sharing data between components
-Sharing data between components is possible through React context which is well described (here)[https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd] 
-However, sometimes we need a simpler solution for just specific components without having an higher level state and context. Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use useLinkedState to connect two or more components through a common gateway.
+Sharing data between components is possible through React context which is well described [here](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd) 
+However, sometimes we need a simpler solution for just specific components without having an higher level state and context. 
+Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use useLinkedState to connect two or more components through a common gateway.
 
 # How to use
-First in parent component import and instantiating a gateway.
+First import and instantiating a gateway in parent component.
 ```
-import {useStateGateway} from "use-linked-state.js";
+import {useStateGateway} from "use-linked-state";
 const myGateway = useStateGateway("this is initial state");
 ```
 Then pass this `gateway` as a prop to every component that we want to connect.
@@ -22,7 +23,7 @@ return(
 ```
 Now in child components instead of useState we will import useLinkedState.
 ```
-import { useLinkedState } from "use-linked-state.js";
+import { useLinkedState } from "use-linked-state";
 export default function Component1({stateGateway}){
 const [state, setState] =  useLinkedState(stateGateway);
 ...rest of component
