@@ -5,7 +5,7 @@
  * @file   use-linked-state.js
  * @author Makan Edrisi
  * @since  2020
- * @version 1.0.0
+ * @version 1.1.0
  */
 import { useEffect, useState, useRef } from "react";
 
@@ -32,11 +32,14 @@ export function useLinkedState(gateway) {
   }, []);
 
   useEffect(() => {
-    for (let member of gateway.members) {
-      if (member.setState !== setState && notFirstRun.current) {
-        member.setState(state);
+    if (gateway?.lastUpdate !== state) {
+      for (let member of gateway.members) {
+        if (member.setState !== setState && notFirstRun.current) {
+          member.setState(state);
+        }
       }
     }
+    gateway.lastUpdate = state;
     if (!notFirstRun.current) {
       if (
         gateway.members.length > 0 &&
