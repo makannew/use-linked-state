@@ -8,7 +8,7 @@ Mostly, it is desirable when we are building a component through composition of 
 # How to use
 
 
-```bash
+```shell
 npm i use-linked-state
 ```
 
