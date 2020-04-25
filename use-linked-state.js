@@ -5,7 +5,7 @@
  * @file   use-linked-state.js
  * @author Makan Edrisi
  * @since  2020
- * @version 1.1.0
+ * @version 1.1.1
  */
 import { useEffect, useState, useRef } from "react";
 
