@@ -7,12 +7,12 @@ Mostly, it is desirable when we are building a component through composition of 
 
 # How to use
 First import and instantiating a gateway in parent component.
-```
+```jsx
 import {useStateGateway} from "use-linked-state";
 const myGateway = useStateGateway("this is initial state");
 ```
 Then pass that `gateway` as a prop to every component that we want to connect.
-```
+```jsx
 return(
   <div>
     <Component1 stateGateway = {myGateway} />
@@ -24,7 +24,7 @@ return(
   )
 ```
 Now in child components instead of useState we will import useLinkedState.
-```
+```jsx
 import { useLinkedState } from "use-linked-state";
 
 export default function Component1({stateGateway}){
