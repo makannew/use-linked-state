@@ -6,6 +6,13 @@ However, sometimes we need a simpler solution for just specific components witho
 Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use useLinkedState to connect two or more components through a common gateway.
 
 # How to use
+
+
+```bash
+npm i use-linked-state
+```
+
+
 First import and instantiating a gateway in parent component.
 ```jsx
 import {useStateGateway} from "use-linked-state";
