@@ -3,7 +3,7 @@ Sharing data between components is possible through React context which is well 
 ](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd) 
 
 However, sometimes we need a simpler solution for just specific components without having an higher level state and context. 
-Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use useLinkedState to connect two or more components through a common gateway.
+Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use ```useLinkedState``` to connect two or more components through a common gateway.
 
 # How to use
 
