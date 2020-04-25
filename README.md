@@ -30,7 +30,7 @@ return(
   </div>
   )
 ```
-Now in child components instead of useState we will import useLinkedState.
+Now in child components instead of `useState` we will import `useLinkedState`.
 ```jsx
 import { useLinkedState } from "use-linked-state";
 
@@ -44,7 +44,7 @@ export default function Component1({stateGateway}){
 
 }
 ```
-Then each component will access to a shared state through its own `[state, setState]` and changing state by any of these components cause update of others. In this way we have more control on unwanted rendering due to change of higher component state. Also, it is useful to make more reusable components where they can talk together through a generic protocol.
+Then each component will access to a shared state through its own `[state, setState]` and changing state by any of these components cause update of others. In this way we have more control on unwanted rendering due to change of higher component state. Also, it is useful to make more reusable components where they can talk to each other through a private line which can handle huge amount of communication whithout affecting other parts.
 
 
 
