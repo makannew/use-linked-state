@@ -1,10 +1,18 @@
 import React from 'react'
 
-import { ExampleComponent } from 'use-linked-state'
-import 'use-linked-state/dist/index.css'
+import { useStateGateway } from 'use-linked-state'
+import InputOne from './components/input-one'
+import InputTwo from './components/input-two'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  const gateway = useStateGateway('')
+  return (
+    <div>
+      <h3>States of Input fields are linked together</h3>
+      <InputOne gateway={gateway} />
+      <InputTwo gateway={gateway} />
+    </div>
+  )
 }
 
 export default App
