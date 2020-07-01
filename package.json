@@ -1,7 +1,14 @@
 {
   "name": "use-linked-state",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "React hook for sharing data across functional components",
+  "keywords": [
+    "react",
+    "hook",
+    "share",
+    "link",
+    "state"
+  ],
   "author": "makannew",
   "license": "MIT",
   "repository": "makannew/use-linked-state",
