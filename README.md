@@ -49,14 +49,13 @@ export default function Component1({stateGateway}){
 
   const [state, setState] =  useLinkedState(stateGateway);
 
-  ...In rest of component we can use state and setState as usual,
-  any setState will cause update of other subscribed components
-  and state of this component may updated by others as well.
-
 }
 ```
 
 Then each component will access to a shared state through its own `[state, setState]` and changing state by any of these components cause update of others. In this way we have more control on unwanted rendering due to change of higher component state. Also, it is useful to make more reusable components where they can talk to each other through a private line which can handle huge amount of communication whithout affecting other parts.
+<br/>
+<br/>
+<br/>
 
 ## motivation
 Sharing data between components is possible through React context which is well described [ here by Sambhav Gore
@@ -65,6 +64,9 @@ Sharing data between components is possible through React context which is well 
 However, sometimes we need a simpler solution for just specific components without having an higher level state and context.
 Mostly, it is desirable when we are building a component through composition of reusable components. For this purpose, we can use `useLinkedState` to connect two or more components through a common gateway.
 
+<br/>
+<br/>
+<br/>
 ## License
 
 MIT © [makannew](https://github.com/makannew)
