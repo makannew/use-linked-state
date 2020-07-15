@@ -1,6 +1,6 @@
 # use-linked-state
 
-> React hook for sharing data across functional components
+> React hook for sharing data between functional components
 
 [![NPM](https://img.shields.io/npm/v/use-linked-state.svg)](https://www.npmjs.com/package/use-linked-state) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 <br/>
@@ -18,7 +18,8 @@ npm install --save use-linked-state
 ```
 <br/>
 <br/>
-# How to use
+
+## How to use
 
 [Demo and Code](https://makannew.github.io/use-linked-state/)
 
