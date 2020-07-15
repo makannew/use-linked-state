@@ -7,38 +7,37 @@ export function useStateGateway(initialState) {
       gateway.current = { members: [], initialState }
     }
   }, [])
-  return gateway.current
+  return gateway
 }
 
 export function useLinkedState(gateway) {
-  const [state, setState] = useState(gateway?.initialState)
-  const notFirstRun = useRef()
+  const initialState = gateway.current?.hasOwnProperty('lastUpdate')
+    ? gateway.current.lastUpdate
+    : gateway.current?.initialState
+  const [state, setState] = useState(initialState)
 
   useEffect(() => {
     const thisMember = { state, setState }
-    gateway.members.push(thisMember)
+    gateway.current.members.push(thisMember)
     return () => {
-      gateway.members.splice(gateway.members.indexOf(thisMember), 1)
+      gateway.current.members.splice(
+        gateway.current.members.indexOf(thisMember),
+        1
+      )
     }
   }, [])
 
   useEffect(() => {
-    if (gateway?.lastUpdate !== state) {
-      for (let member of gateway.members) {
-        if (member.setState !== setState && notFirstRun.current) {
+    if (
+      gateway.current?.lastUpdate !== state ||
+      !gateway.current.hasOwnProperty('lastUpdate')
+    ) {
+      for (let member of gateway.current.members) {
+        if (member.setState !== setState) {
           member.setState(state)
         }
       }
-    }
-    gateway.lastUpdate = state
-    if (!notFirstRun.current) {
-      if (
-        gateway.members.length > 0 &&
-        gateway.members[0].setState !== setState
-      ) {
-        setState(gateway.members[0].state)
-      }
-      notFirstRun.current = true
+      gateway.current.lastUpdate = state
     }
   }, [state])
 
