@@ -13,6 +13,8 @@
 
 ## Install
 
+<br/>
+
 ```console
 npm install --save use-linked-state
 ```
