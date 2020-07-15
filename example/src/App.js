@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div>
       <div className='top-panel'>
-        <h3>States of Input fields are linked together</h3>
+        <h3>Input fields are linked together</h3>
         <FirstInput gateway={gateway} />
         <SecondInput gateway={gateway} />
       </div>
