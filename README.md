@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/use-linked-state.svg)](https://www.npmjs.com/package/use-linked-state) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Sharing data between components is possible through React context which is well described [by Sambhav Gore
+Sharing data between components is possible through React context which is well described [ here by Sambhav Gore
 ](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd)
 
 However, sometimes we need a simpler solution for just specific components without having an higher level state and context.
