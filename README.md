@@ -22,7 +22,7 @@ npm install --save use-linked-state
 
 [Demo and Code](https://makannew.github.io/use-linked-state/)
 
-In parrent component declare a gateway
+In the parrent component declare a gateway and pass it down to child components
 ```jsx
 import { useStateGateway } from 'use-linked-state'
 const myGateway = useStateGateway('this is initial state')
@@ -57,7 +57,7 @@ Then each component will access to a shared state through its own `[state, setSt
 <br/>
 <br/>
 
-## motivation
+## Motivation
 Sharing data between components is possible through React context which is well described [ here by Sambhav Gore
 ](https://www.codementor.io/@sambhavgore/an-example-use-context-and-hooks-to-share-state-between-different-components-sgop6lnrd)
 
@@ -67,6 +67,7 @@ Mostly, it is desirable when we are building a component through composition of 
 <br/>
 <br/>
 <br/>
+
 ## License
 
 MIT © [makannew](https://github.com/makannew)
