@@ -9,6 +9,7 @@ export default function SecondInput({ gateway }) {
   return (
     <div>
       <input
+        id='second-input'
         type='text'
         placeholder='Type here'
         value={state}
