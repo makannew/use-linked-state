@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLinkedState } from 'use-linked-state'
 
-export default function InputTwo({ gateway }) {
+export default function FirstInput({ gateway }) {
   const [state, setState] = useLinkedState(gateway)
   function handleChange(e) {
     setState(e.target.value)

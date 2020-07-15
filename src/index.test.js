@@ -4,9 +4,9 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import { render, fireEvent, screen } from '@testing-library/react'
 import React, { useRef } from 'react'
 
-describe('use-linked-state hooks', () => {
+describe('Test use-linked-state as hooks', () => {
   //
-  it('undefined initial state', () => {
+  it('accepts undefined initial state', () => {
     //
     const { result: resultG } = renderHook(() => useStateGateway())
     //
@@ -20,7 +20,7 @@ describe('use-linked-state hooks', () => {
     expect(typeof setState1).toBe('function')
   })
   //
-  it('null initial state', () => {
+  it('accepts null as initial state', () => {
     //
     const { result: resultG } = renderHook(() => useStateGateway(null))
     //
@@ -35,7 +35,7 @@ describe('use-linked-state hooks', () => {
   })
   //
   //
-  it('functional initial state', () => {
+  it('accepts functional initial state', () => {
     const initialState = { value: 1 }
     //
     const { result: resultG } = renderHook(() =>
@@ -52,7 +52,7 @@ describe('use-linked-state hooks', () => {
     expect(typeof setState1).toBe('function')
   })
   //
-  it('set initial state', () => {
+  it('sets initial state properly', () => {
     const initialState = { value: 'initial value' }
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -67,7 +67,7 @@ describe('use-linked-state hooks', () => {
     expect(typeof setState1).toBe('function')
   })
   //
-  it('immutable state', () => {
+  it('leaves state immutable', () => {
     const initialState = { value: 1 }
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -90,7 +90,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL2.current[0]).toEqual(initialState)
   })
   //
-  it('share state between two members', () => {
+  it('shares state between two members', () => {
     const initialState = { value: 1 }
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -116,7 +116,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL1.current[0].value).toBe(3)
   })
   //
-  it('share primitive state between three members', () => {
+  it('shares primitive state between three members', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -148,7 +148,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL3.current[0]).toBe(newState)
   })
   //
-  it('unmount a member', () => {
+  it('stable after unmounting a member', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -188,7 +188,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL3.current[0]).toBe(4)
   })
   //
-  it('mount after first setState', () => {
+  it('assigns correct initial state to a newly mounted member', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -209,7 +209,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL2.current[0]).toBe(2)
   })
   //
-  it('unmount and mount again', () => {
+  it('stable on unmount and mount again', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -242,7 +242,7 @@ describe('use-linked-state hooks', () => {
     expect(newResultL2.current[0]).toBe(2)
   })
   //
-  it('keep state after all unmount', () => {
+  it('keeps state after unmounting all members', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -270,7 +270,7 @@ describe('use-linked-state hooks', () => {
     expect(resultL3.current[0]).toBe(2)
   })
   //
-  it('consecutive setState', () => {
+  it('proceed correctly during consecutive setState', () => {
     const initialState = 1
     //
     const { result: resultG } = renderHook(() => useStateGateway(initialState))
@@ -296,7 +296,7 @@ describe('use-linked-state hooks', () => {
   })
 })
 //
-describe('use-linked-state inside parent component', () => {
+describe('Test use-linked-state inside parent component', () => {
   //
   const Component1 = ({ stateGateway }) => {
     const [state1, setState1] = useLinkedState(stateGateway)
@@ -340,7 +340,7 @@ describe('use-linked-state inside parent component', () => {
     )
   }
   //
-  it('number of rendering per setState', () => {
+  it('renders only once after setState', () => {
     render(<ParentComponent />)
     //
     fireEvent.click(screen.getByTestId('comp1'))
@@ -352,7 +352,7 @@ describe('use-linked-state inside parent component', () => {
     expect(screen.getByTestId('render2').innerHTML).toBe('4')
   })
   //
-  it('alternate consecutive setState', () => {
+  it('proceed state correctly during alternate consecutive setState', () => {
     render(<ParentComponent />)
     //
     fireEvent.click(screen.getByTestId('comp2'))
