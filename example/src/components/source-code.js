@@ -5,6 +5,7 @@ import { prism as thisStyle } from 'react-syntax-highlighter/dist/esm/styles/pri
 SyntaxHighlighter.registerLanguage('jsx', jsx)
 
 export default function SourceCode() {
+  const highLightColor = '#ffff00'
   return (
     <div>
       <h4 className='code-title'>Parent component:</h4>
@@ -14,6 +15,14 @@ export default function SourceCode() {
         language='jsx'
         style={thisStyle}
         showLineNumbers='true'
+        wrapLines={true}
+        lineProps={(lineNumber) => {
+          let style = { display: 'block' }
+          if ([9, 13, 14].includes(lineNumber)) {
+            style.backgroundColor = highLightColor
+          }
+          return { style }
+        }}
       >
         {`
 // Parent component
@@ -42,7 +51,15 @@ export default App
         className='code-style'
         language='jsx'
         style={thisStyle}
-        showLineNumbers='true'
+        showLineNumbers={true}
+        wrapLines={true}
+        lineProps={(lineNumber) => {
+          let style = { display: 'block' }
+          if (lineNumber === 7) {
+            style.backgroundColor = highLightColor
+          }
+          return { style }
+        }}
       >
         {`
 // First input field
@@ -74,6 +91,14 @@ export default function FirstInput({ gateway }) {
         language='jsx'
         style={thisStyle}
         showLineNumbers='true'
+        wrapLines={true}
+        lineProps={(lineNumber) => {
+          let style = { display: 'block' }
+          if (lineNumber === 7) {
+            style.backgroundColor = highLightColor
+          }
+          return { style }
+        }}
       >
         {`
 // Second input field
